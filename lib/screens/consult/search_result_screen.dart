@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // Provider 패키지를 import합니다.
+import 'package:provider/provider.dart';
 
-class ConsultScreen extends StatefulWidget {
-  const ConsultScreen({Key? key}) : super(key: key);
+
+class SearchResultScreen extends StatefulWidget {
+  final String serachKeyword;
+  const SearchResultScreen({super.key, required this.serachKeyword});
 
   @override
-  State<ConsultScreen> createState() => _ConsultScreenState();
+  State<SearchResultScreen> createState() => _SearchResultScreenState();
 }
 
-class _ConsultScreenState extends State<ConsultScreen> {
-  String searchKeyword = '';
+class _SearchResultScreenState extends State<SearchResultScreen> {
+  String searchKeyword = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            color: const Color(0xff222222),
+            icon: const Icon(Icons.arrow_back_ios), onPressed: () {
+              Navigator.pop(context);
+            },
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24),
           child: Column(
             children: <Widget>[
-              // 1. 오디오 아이콘, 텍스트 문구
               Column(
                 children: [
                   Icon(
@@ -64,11 +72,11 @@ class _ConsultScreenState extends State<ConsultScreen> {
                       child: TextField(
                         autofocus: false,
                         style: const TextStyle(fontSize: 15),
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           border: InputBorder.none,
-                          hintText: '상품 이름을 입력해주세요',
-                          hintStyle: TextStyle(color: Color(0xff9BA6B4), fontSize: 18, fontWeight: FontWeight.w400),
+                          hintText: widget.serachKeyword,
+                          hintStyle: const TextStyle(color: Color(0xff9BA6B4), fontSize: 18, fontWeight: FontWeight.w400),
                         ),
                         onChanged: (value){
                           setState(() {
@@ -86,7 +94,15 @@ class _ConsultScreenState extends State<ConsultScreen> {
                         },
                       ),
                     ),
-                    const Icon(Icons.search, color: Color(0xff3168FD), size: 28,),
+                    IconButton(
+                        icon : const Icon(Icons.close, color: Color(0xffD0D5DB), size: 28,), onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  SearchResultScreen(
+                                    serachKeyword: searchKeyword,)));
+                    }
+                    ),
                   ],
                 ),
               ),
@@ -95,7 +111,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               // 3. 투자 길라잡이
               Container(
                 padding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
-                height: MediaQuery.of(context).size.height * 0.35, // 투자 길라잡이 높이를 화면 높이의 30%로 설정
+                height: MediaQuery.of(context).size.height * 0.5, // 투자 길라잡이 높이를 화면 높이의 30%로 설정
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   boxShadow: [
@@ -112,19 +128,18 @@ class _ConsultScreenState extends State<ConsultScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      '아는만큼 보인다!',
-                      style: TextStyle(fontSize: 14, color: Color(0xff565D66)),
-                    ),
-                    const Text(
-                      '당신을 위한 투자 길라잡이',
-                      style: TextStyle(fontSize: 20, color: Color(0xff565D66)),
+                      '검색결과',
+                      style: TextStyle(fontSize: 18, color: Color(0xff565D66), fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(height: 16),
-                    _buildInvestmentItem('ELS(주가지수 연계형 상품)', '1'),
-                    const SizedBox(height: 5),
-                    _buildInvestmentItem('단기사채', '2'),
-                    const SizedBox(height: 5),
-                    _buildInvestmentItem('ETF(상장지수펀드)', '3'),
+
+                    // todo : 검색 결과 받아와서 제목 뿌려주기, 일단은 하드코딩
+                    _buildSearchedItem('신한투자증권(ELS) 25490'),
+                    _underBar(),
+                    _buildSearchedItem('신한투자증권(ELS) 25491'),
+                    _underBar(),
+                    _buildSearchedItem('신한투자증권(ELS) 25494'),
+                    _underBar(),
                   ],
                 ),
               ),
@@ -135,33 +150,27 @@ class _ConsultScreenState extends State<ConsultScreen> {
     );
   }
 
-  Widget _buildInvestmentItem(String title, String num) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.width * 0.06, // 아이콘 높이를 화면 너비의 6%로 설정
-              width: MediaQuery.of(context).size.width * 0.06, // 아이콘 너비를 화면 너비의 6%로 설정
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                color: const Color(0xff3168FD),
-              ),
-              child: Center(child: Text(num, style: const TextStyle(fontSize : 14, color: Colors.white),)),
-            ),
-            const SizedBox(width: 14),
-            Text(title, style: const TextStyle(fontSize: 18, color: Color(0xff565D66), fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-          ],
-        ),
-        IconButton(
-          icon: const Icon(Icons.arrow_forward_ios_sharp, color: Color(0xffD9D9D9),),
-          onPressed: () {
-            // todo : 상세페이지로 이동하는 코드 추가
-            print('$title 눌림!');
-          },
-        ),
-      ],
+  Widget _buildSearchedItem(String title) {
+    return TextButton(
+      onPressed: () {
+        // todo : 상세페이지로 이동하기
+        print('$title 상세페이지로 이동!');
+      }, child: Text(title, style: const TextStyle(fontSize: 18, color: Color(0xff565D66), fontWeight: FontWeight.w600)));
+  }
+
+  Widget _underBar(){
+    return Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 5),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.85,
+            height: 1,
+            color: const Color(0xffDBDBDC),
+          ),
+          const SizedBox(height: 5),
+        ],
+      ),
     );
   }
 }
