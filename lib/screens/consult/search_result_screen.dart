@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naeun_front/screens/consult/description_screen.dart';
 import 'package:provider/provider.dart';
 
 
@@ -135,11 +136,11 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
 
                     // todo : 검색 결과 받아와서 제목 뿌려주기, 일단은 하드코딩
                     _buildSearchedItem('신한투자증권(ELS) 25490'),
-                    _underBar(),
+                    _underBarWidget(),
                     _buildSearchedItem('신한투자증권(ELS) 25491'),
-                    _underBar(),
+                    _underBarWidget(),
                     _buildSearchedItem('신한투자증권(ELS) 25494'),
-                    _underBar(),
+                    _underBarWidget(),
                   ],
                 ),
               ),
@@ -154,11 +155,14 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
     return TextButton(
       onPressed: () {
         // todo : 상세페이지로 이동하기
-        print('$title 상세페이지로 이동!');
-      }, child: Text(title, style: const TextStyle(fontSize: 18, color: Color(0xff565D66), fontWeight: FontWeight.w600)));
+        Navigator.push(context, MaterialPageRoute(
+              builder: (context) =>
+                  DescriptionScreen(descriptionTitle: title,)));
+      }
+      , child: Text(title, style: const TextStyle(fontSize: 18, color: Color(0xff565D66), fontWeight: FontWeight.w600)));
   }
 
-  Widget _underBar(){
+  Widget _underBarWidget(){
     return Center(
       child: Column(
         children: [
