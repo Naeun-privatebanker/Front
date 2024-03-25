@@ -1,67 +1,70 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'dart:math';
-
-class HalfCirclePainter extends CustomPainter {
-  final String riskRate;
-  final String riskName;
-
-  HalfCirclePainter(this.riskRate, this.riskName);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.blue // 반원의 색상
-      ..style = PaintingStyle.fill;
-
-    // 캔버스 크기
-    final double width = size.width;
-    final double height = size.height;
-
-    // 반원을 그리기 위한 경로 생성
-    Path path = Path();
-    path.moveTo(0, height / 2);
-    path.quadraticBezierTo(0, 0, width / 2, 0);
-    path.arcTo(Rect.fromLTWH(0, 0, width, height), -pi, pi, false);
-    path.quadraticBezierTo(width, 0, width, height / 2);
-    path.close();
-
-    // 생성한 경로를 캔버스에 그리기
-    canvas.drawPath(path, paint);
-
-    // 텍스트 그리기
-    TextSpan span = TextSpan(
-      style: TextStyle(color: Colors.white, fontSize: 20),
-      children: [
-        TextSpan(text: riskRate + '\n',),
-        TextSpan(text: riskName),
-      ],
-    );
-    TextPainter tp = TextPainter(
-      text: span,
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-    tp.layout();
-    tp.paint(canvas, Offset((width - tp.width) / 2, (height - tp.height) / 2));
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
-  }
-}
 
 class HalfCircleWidget extends StatelessWidget {
   final String riskRate;
   final String riskName;
 
-  HalfCircleWidget(this.riskRate, this.riskName);
+  const HalfCircleWidget(this.riskRate, this.riskName, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: HalfCirclePainter(riskRate, riskName),
-      size: Size(MediaQuery.of(context).size.width, 90), // 조절 가능한 크기
+    return Container(
+      width: 200,
+      height: 200,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: CustomPaint(
+              painter: HalfCirclePainter(),
+            ),
+          ),
+          _buildPiece(0, -30, Colors.red), // Red
+          _buildPiece(-30, -60, Colors.orange), // Orange
+          _buildPiece(-60, -90, Colors.yellow), // Yellow
+          _buildPiece(-90, -120, Colors.green), // Green
+          _buildPiece(-120, -150, Colors.blue), // Blue
+          _buildPiece(-150, -180, Colors.purple), // Purple
+        ],
+      ),
     );
+  }
+
+  Widget _buildPiece(double startAngle, double endAngle, Color color) {
+    return Positioned.fill(
+      child: CustomPaint(
+        painter: HalfCirclePainter(startAngle, endAngle, color),
+      ),
+    );
+  }
+}
+
+class HalfCirclePainter extends CustomPainter {
+  final double startAngle;
+  final double endAngle;
+  final Color color;
+
+  HalfCirclePainter([this.startAngle = 0, this.endAngle = -180, this.color = Colors.white]);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    final startAngleRadians = math.pi * startAngle / 180;
+    final endAngleRadians = math.pi * endAngle / 180;
+
+    final paint = Paint()..color = color;
+
+    final path = Path()
+      ..moveTo(size.width / 2, size.height / 2)
+      ..arcTo(rect, startAngleRadians, endAngleRadians - startAngleRadians, false)
+      ..lineTo(size.width / 2, size.height / 2)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:naeun_front/screens/consult/half_circle_widget.dart';
+import 'dart:math' as math;
+
+import 'half_circle_widget.dart';
 
 class DescriptionScreen extends StatefulWidget {
   final String descriptionTitle;
@@ -55,7 +57,6 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
 
   Widget _titleInfoWidget(String title, String riskRate, String riskName){
     return Container(
-      height: 200,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
         color: Color(0xff4678FE),
@@ -67,7 +68,13 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           children: [
             Text(title, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),),
             const Text('상품이란?', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),),
-            HalfCircleWidget(riskRate, riskName),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                HalfCircleWidget(riskRate, riskName),
+              ],
+            ),
+
           ],
         ),
       ),
@@ -151,19 +158,16 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
   }
 
   Widget _cautionWidget(){
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      color: Colors.purple,
-      child: Column(
-        children: [
-          const Text('기본 정보', style: TextStyle(fontSize: 20, color: Color(0xff191919), fontWeight: FontWeight.w600),),
-          const SizedBox(height: 10,),
-          Container(
-            color: Colors.yellowAccent,
-            child: Text('상품명 내용'),
-          )
-        ],
-      )
+    return Column(
+      children: [
+        SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: const Text('나은이가 알려주는 - 상품명', style: TextStyle(fontSize: 20, color: Color(0xff191919), fontWeight: FontWeight.w600), textAlign: TextAlign.start,)),
+        const SizedBox(height: 10,),
+        const Text('설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다.'
+        , style: TextStyle(fontSize: 16),),
+        const SizedBox(height: 20,),
+      ],
     );
   }
 }
