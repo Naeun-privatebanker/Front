@@ -26,6 +26,11 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           ),
         // todo : actions에 넣을 글자크기 변경 아이콘이 없어서 (한글 모양의) 커스텀 위젯 만들어야 할 듯, but 우선순위 최하
         ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        print('나은이가 말합니다!');
+      },
+
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

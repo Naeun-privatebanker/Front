@@ -9,24 +9,46 @@ class HalfCircleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 200,
-      child: Stack(
+    return Stack(
         children: [
-          Positioned.fill(
-            child: CustomPaint(
-              painter: HalfCirclePainter(),
+          Container(
+            width: 250,
+            height: 250,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: CustomPaint(
+                    painter: HalfCirclePainter(),
+                  ),
+                ),
+                _buildPiece(0, -30, Colors.red), // Red
+                _buildPiece(-30, -60, Colors.orange), // Orange
+                _buildPiece(-60, -90, Colors.yellow), // Yellow
+                _buildPiece(-90, -120, Colors.green), // Green
+                _buildPiece(-120, -150, Colors.blue), // Blue
+                _buildPiece(-150, -180, Colors.purple),// Purple
+              ],
             ),
           ),
-          _buildPiece(0, -30, Colors.red), // Red
-          _buildPiece(-30, -60, Colors.orange), // Orange
-          _buildPiece(-60, -90, Colors.yellow), // Yellow
-          _buildPiece(-90, -120, Colors.green), // Green
-          _buildPiece(-120, -150, Colors.blue), // Blue
-          _buildPiece(-150, -180, Colors.purple), // Purple
-        ],
-      ),
+          Positioned(
+            top: 25,
+            right: 25,
+            child: SizedBox(
+              width: 200,
+              height: 200,
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: CustomPaint(
+                    painter: HalfCirclePainter(),
+                  ),
+                  ),
+                  _buildPiece(0, -180, Colors.black),
+                ],
+              ),
+            ),
+          ),
+        ]
     );
   }
 
