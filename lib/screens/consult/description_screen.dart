@@ -26,11 +26,61 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           ),
         // todo : actions에 넣을 글자크기 변경 아이콘이 없어서 (한글 모양의) 커스텀 위젯 만들어야 할 듯, but 우선순위 최하
         ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        print('나은이가 말합니다!');
-      },
+      floatingActionButton: Stack(
+        children: [
+          Align(
+            alignment: Alignment(
+                Alignment.bottomRight.x-0.05,
+                Alignment.bottomRight.y-0.25,
+            ),
+            child: Container(
+              width: 80,
+              height: 40,
+              decoration: BoxDecoration(
+                color: const Color(0xff0045FF),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5), // 그림자 색상과 투명도 설정
+                    spreadRadius: 1, // 그림자의 확산 범위
+                    blurRadius: 5, // 그림자의 흐림 정도
+                    offset: Offset(0, 3), // 그림자의 위치 조정 (가로, 세로)
+                  ),
+                ],
+              ),
+              child: Center(child: Text('설명듣기', style: TextStyle(color: Colors.white),)),
+            ),
+          ),
+           Align(
+             alignment: Alignment(
+               Alignment.bottomRight.x,
+               Alignment.bottomRight.y-0.02,
+             ),
+             child: FloatingActionButton.large(
+               onPressed: () {
+                 print('나은이눌림!');
+               },
+               backgroundColor: Colors.transparent, // 배경색을 투명하게 설정
+               elevation: 0,
+               splashColor: Colors.transparent,
+               highlightElevation: 0,
+               child: Container(
+                 width: 100, // 이미지의 너비
+                 height: 100, // 이미지의 높이
+                 decoration: const BoxDecoration(
+                   shape: BoxShape.circle, // 원 모양의 컨테이너로 설정
+                   image: DecorationImage(
+                     image: AssetImage('assets/floating_naeun.png'), // 이미지 파일 경로 설정
+                     fit: BoxFit.cover, // 이미지를 컨테이너에 꽉 채웁니다.
+                   ),
+                 ),
+               ),
+             ),
+           ),
 
-      ),
+        ]
+      ),// 그림자 없음
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked, // 버튼 위치 설정
       body: SingleChildScrollView(
         child: Column(
           children: [
