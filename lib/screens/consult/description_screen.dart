@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -12,6 +14,7 @@ class DescriptionScreen extends StatefulWidget {
 }
 
 class _DescriptionScreenState extends State<DescriptionScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +51,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                   ),
                 ],
               ),
-              child: Center(child: Text('설명듣기', style: TextStyle(color: Colors.white),)),
+              child: const Center(child: Text('설명듣기', style: TextStyle(color: Colors.white),)),
             ),
           ),
            Align(
@@ -57,10 +60,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                Alignment.bottomRight.y-0.02,
              ),
              child: FloatingActionButton.large(
-               onPressed: () {
-                 print('나은이눌림!');
-               },
-               backgroundColor: Colors.transparent, // 배경색을 투명하게 설정
+               onPressed: () => showDialog<String>(
+                 context: context,
+                 builder: (BuildContext context) => Dialog.fullscreen(
+                   backgroundColor: Colors.black.withOpacity(0.5),
+                   child: _naeunDialog(widget.descriptionTitle),
+                 )
+               ),
+               backgroundColor: Colors.transparent,
                elevation: 0,
                splashColor: Colors.transparent,
                highlightElevation: 0,
@@ -68,10 +75,10 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                  width: 100, // 이미지의 너비
                  height: 100, // 이미지의 높이
                  decoration: const BoxDecoration(
-                   shape: BoxShape.circle, // 원 모양의 컨테이너로 설정
+                   shape: BoxShape.circle,
                    image: DecorationImage(
-                     image: AssetImage('assets/floating_naeun.png'), // 이미지 파일 경로 설정
-                     fit: BoxFit.cover, // 이미지를 컨테이너에 꽉 채웁니다.
+                     image: AssetImage('assets/floating_naeun.png'),
+                     fit: BoxFit.cover,
                    ),
                  ),
                ),
@@ -222,6 +229,107 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
         const Text('설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다.'
         , style: TextStyle(fontSize: 16),),
         const SizedBox(height: 20,),
+      ],
+    );
+  }
+
+  Widget _naeunDialog(String descriptionTitle){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            // 뒤로가기 아이콘
+            SizedBox(height: 5, width: MediaQuery.of(context).size.width),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(width: 5),
+                IconButton(
+                  color: Colors.white,
+                  icon: const Icon(Icons.arrow_back_ios), onPressed: () {
+                  Navigator.pop(context);
+                },
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+
+            // 1. 텍스트
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.multitrack_audio,
+                  color: Colors.white,
+                  size: MediaQuery.of(context).size.width * 0.1, // 아이콘 크기를 화면 너비의 10%로 설정
+                ),
+                const SizedBox(height: 10),
+                Text(descriptionTitle,
+                  style: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.w600),
+                ),
+                const Text(
+                  '에 대해 알려드릴게요',
+                  style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ],
+        ),
+
+
+        // 2. 그림
+        Container(
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: [
+              // 나은이
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: 282,
+                  height: 520,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/speaking_naeun.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                left: MediaQuery.of(context).size.width* 0.1,
+                bottom: 80,
+                child: Container(
+                  width: 100,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xffF2F4F6),
+                  ),
+                  child: const Center(child: Text('그만듣기', style: TextStyle(color: Color(0xff878787), fontSize: 20),)),
+                ),
+              ),
+
+              Positioned(
+                right: MediaQuery.of(context).size.width* 0.1,
+                bottom: 80,
+                child: Container(
+                  width: 200,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xff3168FD),
+                  ),
+                  child: const Center(child: Text('설명 듣기', style: TextStyle(color: Colors.white, fontSize: 20),)),
+                ),
+              )
+
+            ]
+          ),
+        )
       ],
     );
   }
