@@ -14,6 +14,9 @@ class DescriptionScreen extends StatefulWidget {
 }
 
 class _DescriptionScreenState extends State<DescriptionScreen> {
+  // 위험비율 이미지 파일로 대체
+  var danger = ['assets/danger_rate/danger1.png','assets/danger_rate/danger2.png','assets/danger_rate/danger3.png',
+  'assets/danger_rate/danger4.png','assets/danger_rate/danger5.png','assets/danger_rate/danger6.png'];
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +95,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
         child: Column(
           children: [
             // 1. 상품 제목 위젯
-            _titleInfoWidget(widget.descriptionTitle, "2", "높은 위험"),
+            _titleInfoWidget(widget.descriptionTitle, 2),
 
             Column(
               children: <Widget>[
@@ -117,7 +120,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     );
   }
 
-  Widget _titleInfoWidget(String title, String riskRate, String riskName){
+  Widget _titleInfoWidget(String title, int riskRate){
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
@@ -133,7 +136,10 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                HalfCircleWidget(riskRate, riskName),
+                Image.asset(
+                  danger[riskRate-1],
+                  width: 200,
+                  height: 100,),
               ],
             ),
 
