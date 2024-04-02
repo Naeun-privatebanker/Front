@@ -25,14 +25,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     'assets/danger_rate/danger6.png'
   ];
 
-  late final ValueNotifier<bool> _listening;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    final ValueNotifier<bool> _listening = ValueNotifier<bool>(false);
-  }
+  final ValueNotifier<bool> _listening = ValueNotifier<bool>(false);
 
   @override
   Widget build(BuildContext context) {
