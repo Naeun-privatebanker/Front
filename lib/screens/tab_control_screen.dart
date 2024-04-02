@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'record_screen.dart';
+import 'package:flutter/material.dart'
+import 'record/record_screen.dart';
 import 'consult/consult_screen.dart';
 import 'home_screen.dart';
 import 'my_screen.dart';
