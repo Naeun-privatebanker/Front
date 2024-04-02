@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const TabControlScreen(index: 1),
+      home: const TabControlScreen(index: 0),
     );
   }
 }
