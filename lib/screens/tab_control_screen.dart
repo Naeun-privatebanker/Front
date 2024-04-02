@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'
+import 'package:flutter/material.dart';
 import 'record/record_screen.dart';
 import 'consult/consult_screen.dart';
 import 'home_screen.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:naeun_front/screens/record_screen.dart';
+import 'package:naeun_front/screens/record/record_screen.dart';
 import 'package:naeun_front/screens/tab_control_screen.dart';
 
 class HomeScreen extends StatefulWidget {
