@@ -14,9 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Naeun',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff0045FF)),
+        scaffoldBackgroundColor: const Color(0xffF2F4F6),
+        appBarTheme: const AppBarTheme(
+          color: Color(0xffF2F4F6),
+        ),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const TabControlScreen(index: 0),
     );
   }
