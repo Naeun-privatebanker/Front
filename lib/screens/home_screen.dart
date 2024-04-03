@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 첫번째 card
             GestureDetector(
               onTap: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2,)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2, recordTabNum: 0)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 두 번째 카드 -> 녹취 탭으로 페이지 연결
             GestureDetector(
               onTap: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2,)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2, recordTabNum: 0,)));
                 },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -131,8 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 세 번째 카드 -> 이해도 퀴즈 탭으로 이동
             GestureDetector(
               onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const RecordScreen()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2, recordTabNum: 1)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -165,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: (){
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3)));
+                    MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3, recordTabNum: 0)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),

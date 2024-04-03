@@ -6,7 +6,8 @@ import 'my_screen.dart';
 
 class TabControlScreen extends StatefulWidget {
   final int index;
-  const TabControlScreen({Key? key, required this.index}) : super(key: key);
+  final int recordTabNum;
+  const TabControlScreen({Key? key, required this.index, required this.recordTabNum}) : super(key: key);
 
   @override
   _PageState createState() => _PageState();
@@ -14,13 +15,25 @@ class TabControlScreen extends StatefulWidget {
 
 class _PageState extends State<TabControlScreen> {
   int _selectedIndex = 0;
+  late int _recordTabNum;
 
-  List<Widget> pages = <Widget>[
-    const HomeScreen(),
-    const ConsultScreen(),
-    const RecordScreen(),
-    const MyScreen(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _onItemTapped(widget.index);
+    _recordTabNum = widget.recordTabNum;
+  }
+
+  late List<Widget> pages;
+
+  void _initializePages() {
+    pages = <Widget>[
+      const HomeScreen(),
+      const ConsultScreen(),
+      RecordScreen(initialIndex: _recordTabNum),
+      const MyScreen(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,13 +42,8 @@ class _PageState extends State<TabControlScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    _onItemTapped(widget.index);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    _initializePages();
     return Scaffold(
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -51,8 +59,8 @@ class _PageState extends State<TabControlScreen> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        showSelectedLabels: true, // Show labels for selected tab
-        showUnselectedLabels: true, // Show labels for unselected tabs
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
       ),
     );
   }
