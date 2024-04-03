@@ -105,7 +105,7 @@ class _RecordScreenTabState extends State<RecordScreenTab>
                 ),
               ),
             ),
-            SizedBox(height: 26),
+            SizedBox(height: 5),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
