@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:naeun_front/screens/record_screen.dart';
+import 'package:naeun_front/screens/record/record_screen.dart';
 import 'package:naeun_front/screens/tab_control_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 첫번째 card
             GestureDetector(
               onTap: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2,)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 1,)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -131,8 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 세 번째 카드 -> 이해도 퀴즈 탭으로 이동
             GestureDetector(
               onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const RecordScreen()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2,)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -164,8 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 네 번째 카드 -> 마이페이지 탭이랑 연결
             GestureDetector(
               onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3,)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),

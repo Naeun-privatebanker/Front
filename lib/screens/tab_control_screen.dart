@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'record_screen.dart';
+import 'record/record_screen.dart';
 import 'consult/consult_screen.dart';
-import 'home_screen.dart';
-import 'my_screen.dart';
+import 'home/home_screen.dart';
+import 'my/my_screen.dart';
 
 class TabControlScreen extends StatefulWidget {
   final int index;
