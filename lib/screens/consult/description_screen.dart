@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../record/quiz_dialog.dart';
-
 
 class DescriptionScreen extends StatefulWidget {
   final String descriptionTitle;

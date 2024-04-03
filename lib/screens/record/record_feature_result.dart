@@ -13,6 +13,8 @@ class RecordFeatureResult extends StatefulWidget {
 }
 
 class _RecordFeatureResultState extends State<RecordFeatureResult> {
+  final ValueNotifier<bool> _listening = ValueNotifier<bool>(false);
+
   int _currentPageIndex = 0; // 현재 페이지 인덱스를 저장하는 변수
 
   RecordResult recordResult = RecordResult(
@@ -274,7 +276,12 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // 이미지 버튼의 동작 추가
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => Dialog.fullscreen(
+                              backgroundColor: Colors.black.withOpacity(0.5),
+                              child: _naeunDialog(),
+                          ));
                     },
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(), // 버튼을 원 모양으로 만듦
@@ -325,6 +332,125 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
         borderRadius: BorderRadius.circular(20),
         color: index == _currentPageIndex ? Colors.white : Color(0xFFD9D9D9),
       ),
+    );
+  }
+
+  Widget _naeunDialog() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            // 뒤로가기 아이콘
+            SizedBox(height: 5, width: MediaQuery.of(context).size.width),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(width: 5),
+                IconButton(
+                  color: Colors.white,
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+
+            // 1. 텍스트
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.multitrack_audio,
+                  color: Colors.white,
+                  size: MediaQuery.of(context).size.width *
+                      0.1, // 아이콘 크기를 화면 너비의 10%로 설정
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  '오안내 의심표현을',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600),
+                ),
+                const Text(
+                  '함께 확인해봐요',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ],
+        ),
+
+        // 2. 그림 덩어리
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Stack(children: [
+            // 나은이 이미지
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 282,
+                height: 520,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/speaking_naeun.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+
+            Positioned(
+              left: MediaQuery.of(context).size.width * 0.1,
+              bottom: 80,
+              child: ValueListenableBuilder<bool>(
+                  valueListenable: _listening,
+                  builder: (context, value, child) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: _listening.value
+                              ? Colors.transparent
+                              : const Color(0xffFE3A3B),
+                          minimumSize:
+                          Size(MediaQuery.of(context).size.width * 0.8, 55),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              side: BorderSide(
+                                width: 1.0,
+                                color: _listening.value ?
+                                const Color(0x00fff4f6).withOpacity(0.4)
+                                    : Colors.transparent,
+                              )
+                          )),
+                      onPressed: () {
+                        setState(() {
+                          _listening.value = !_listening.value; // 상태를 토글합니다.
+                          print('상태변경!');
+                          print(_listening.value);
+                        });
+                      },
+                      child: Center(
+                        child: Text(
+                          _listening.value ? '그만 듣기' : '설명 듣기',
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                      ),
+                    );
+                  }),
+            )
+          ]),
+        )
+      ],
     );
   }
 }
