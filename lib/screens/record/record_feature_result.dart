@@ -447,7 +447,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                       ),
                     );
                   }),
-            )
+            ),
           ]),
         )
       ],
