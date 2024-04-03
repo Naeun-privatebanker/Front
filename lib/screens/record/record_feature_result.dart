@@ -7,6 +7,7 @@ import '../../models/record_result.dart';
 
 class RecordFeatureResult extends StatefulWidget {
   final String title;
+
   RecordFeatureResult({required this.title});
 
   @override
@@ -27,7 +28,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
       '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”'
     ],
     fullText:
-    '우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?',
+        '우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?',
   );
 
   @override
@@ -76,11 +77,15 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 shaderCallback: (Rect bounds) {
                                   return LinearGradient(
                                     colors: [
-                                      Color(0xFFFFFFFF), // Start color
-                                      Color(0xFFFFFFFF).withOpacity(0.6), // End color
+                                      Color(0xFFFFFFFF),
+                                      // Start color
+                                      Color(0xFFFFFFFF).withOpacity(0.6),
+                                      // End color
                                     ],
-                                    begin: Alignment.topCenter, // 100% at the left
-                                    end: Alignment.bottomCenter, // 0% at the right
+                                    begin: Alignment.topCenter,
+                                    // 100% at the left
+                                    end: Alignment
+                                        .bottomCenter, // 0% at the right
                                   ).createShader(bounds);
                                 },
                                 child: SvgPicture.asset(
@@ -175,7 +180,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: List.generate(
                                   3,
-                                      (index) => buildIndicator(index),
+                                  (index) => buildIndicator(index),
                                 ),
                               ),
                               SizedBox(height: 32),
@@ -194,10 +199,35 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                     fontSize: 18, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 16),
-                              Text(
-                                recordResult.fullText,
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(0, 10),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(10, 20),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText.substring(20),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
                               ),
                               SizedBox(height: 26),
                               Container(
