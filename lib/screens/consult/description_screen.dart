@@ -116,7 +116,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                   context: context,
                   builder: (BuildContext context) => Dialog.fullscreen(
                         backgroundColor: Colors.black.withOpacity(0.5),
-                        child: _naeunDialog(widget.descriptionTitle),
+                        child: _naeunDialog(widget.descriptionTitle)
                       ));
             },
             backgroundColor: Colors.transparent,
