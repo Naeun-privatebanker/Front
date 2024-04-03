@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:naeun_front/screens/record/record_feature_download_popup.dart';
+import 'package:naeun_front/screens/record/record_feature_wrong_popup.dart';
 
 import '../../models/record_result.dart';
 
 class RecordFeatureResult extends StatefulWidget {
   final String title;
+
   RecordFeatureResult({required this.title});
 
   @override
@@ -66,7 +68,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 ),
                               ),
                             );
-                            },
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -75,11 +77,15 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 shaderCallback: (Rect bounds) {
                                   return LinearGradient(
                                     colors: [
-                                      Color(0xFFFFFFFF), // Start color
-                                      Color(0xFFFFFFFF).withOpacity(0.6), // End color
+                                      Color(0xFFFFFFFF),
+                                      // Start color
+                                      Color(0xFFFFFFFF).withOpacity(0.6),
+                                      // End color
                                     ],
-                                    begin: Alignment.topCenter, // 100% at the left
-                                    end: Alignment.bottomCenter, // 0% at the right
+                                    begin: Alignment.topCenter,
+                                    // 100% at the left
+                                    end: Alignment
+                                        .bottomCenter, // 0% at the right
                                   ).createShader(bounds);
                                 },
                                 child: SvgPicture.asset(
@@ -165,7 +171,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                   itemCount: recordResult.itemList.length,
                                   itemBuilder: (context, index) {
                                     return buildPageViewItem(
-                                        recordResult.itemList[index]);
+                                        context, recordResult.itemList[index]);
                                   },
                                 ),
                               ),
@@ -193,10 +199,35 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                     fontSize: 18, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 16),
-                              Text(
-                                recordResult.fullText,
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(0, 10),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(10, 20),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText.substring(20),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
                               ),
                               SizedBox(height: 26),
                               Container(
@@ -297,21 +328,34 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
     );
   }
 
-  Widget buildPageViewItem(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 26, horizontal: 23),
-      margin: EdgeInsets.only(top: 16, right: 9),
-      decoration: BoxDecoration(
-        color: Color(0xFFF2F4F6),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
+  Widget buildPageViewItem(BuildContext context, String text) {
+    return InkWell(
+      onTap: () {
+        // 클릭 시 페이지 이동 코드 작성
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                RecordWrongPopup(text: text), // NextPage는 이동할 페이지 위젯입니다.
+          ),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 26, horizontal: 23),
+        margin: EdgeInsets.only(top: 16, right: 9),
+        decoration: BoxDecoration(
+          color: Color(0xFFF2F4F6),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            decoration: TextDecoration.underline),
-        softWrap: true,
+            decoration: TextDecoration.underline,
+          ),
+          softWrap: true,
+        ),
       ),
     );
   }

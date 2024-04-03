@@ -4,7 +4,9 @@ import 'package:naeun_front/screens/record/record_feature_screen.dart';
 import 'package:naeun_front/screens/record/record_screen_tab.dart';
 
 class RecordScreen extends StatefulWidget {
-  const RecordScreen({Key? key}) : super(key: key);
+  final int initialIndex;
+
+  const RecordScreen({Key? key, required this.initialIndex}) : super(key: key);
 
   @override
   State<RecordScreen> createState() => _RecordScreenState();
@@ -70,7 +72,7 @@ class _RecordScreenState extends State<RecordScreen> {
                       },
                       child: Container(
                         width: double.infinity,
-                        margin: EdgeInsets.only(left: 24, right: 24, bottom: 26),
+                        margin: EdgeInsets.only(left: 24, right: 24),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(40),
@@ -93,7 +95,7 @@ class _RecordScreenState extends State<RecordScreen> {
               ),
             ),
           ),
-          RecordScreenTab(recordCount: 3, isNewQuizExist: true), // TabPage 추가
+          RecordScreenTab(recordCount: 3, isNewQuizExist: true, initialIndex: widget.initialIndex,), // TabPage 추가
         ],
       ),
     );
