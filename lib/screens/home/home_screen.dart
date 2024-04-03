@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:naeun_front/screens/record/record_screen.dart';
 import 'package:naeun_front/screens/tab_control_screen.dart';
+
+import 'package:naeun_front/models/user.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
