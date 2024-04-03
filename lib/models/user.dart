@@ -2,8 +2,17 @@
 // ex. 사용자 정보를 다루는 user.dart 파일
 
 class User {
-  final String name;
-  final int age;
+  final String userId;
+  final String accessToken;
+  final String refreshToken;
 
-  User({required this.name, required this.age});
+  User({required this.userId, required this.accessToken, required this.refreshToken});
+
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+      userId: json["data"]["userId"].toString(),
+      accessToken: json["data"]["accessToken"],
+      refreshToken: json["data"]["refreshToken"],
+    );
+  }
 }

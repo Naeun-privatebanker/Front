@@ -1,9 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
-import 'half_circle_widget.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 
 class DescriptionScreen extends StatefulWidget {
   final String descriptionTitle;
@@ -15,6 +15,7 @@ class DescriptionScreen extends StatefulWidget {
 }
 
 class _DescriptionScreenState extends State<DescriptionScreen> {
+
   // 위험비율 이미지 파일로 대체
   var danger = [
     'assets/danger_rate/danger1.png',
@@ -24,6 +25,40 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     'assets/danger_rate/danger5.png',
     'assets/danger_rate/danger6.png'
   ];
+
+  Future<Map<String, dynamic>> fetchData(String productId) async {
+    final url = Uri.parse('http://35.216.24.226:8080/api/v1/product?product=$productId');
+
+    final response = await http.get(
+      url,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      // Assuming 'response' is the HTTP response object
+      var decodedResponse = utf8.decode(response.bodyBytes);
+      var responseData = json.decode(decodedResponse);
+
+      return responseData;
+
+    } else {
+      throw Exception('Failed to load data');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData('3').then((data) {
+      print(data);
+      // Handle the retrieved data here
+    }).catchError((error) {
+      // Handle errors here
+    });
+  }
+
 
   final ValueNotifier<bool> _listening = ValueNotifier<bool>(false);
 
@@ -129,7 +164,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 // 3. 나은이가 알려주는 주의사항 위젯
                 Padding(
                     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                    child: _cautionWidget()),
+                    child: _cautionWidget(widget.descriptionTitle)),
               ],
             ),
           ],
@@ -214,15 +249,15 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _infoTile("판매사", "우리은행"),
+                _infoTile("판매사", "우리은행", "grey"),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
-                _infoTile("증권유형", "수익한도제한"),
+                _infoTile("증권유형", "수익한도제한", "grey"),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
-                _infoTile("위험지표", "2"),
+                _infoTile("위험지표", "2", "red"),
               ],
             ),
             const SizedBox(
@@ -231,15 +266,15 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _infoTile("조건충족시수익", "5.0%"),
+                _infoTile("조건충족시수익", "5.0%", "grey"),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
-                _infoTile("최대손실률", "-100%"),
+                _infoTile("최대손실률", "-100%", "red"),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
-                _infoTile("기초자산", "S&P500외 2"),
+                _infoTile("기초자산", "S&P500외 2", "grey"),
               ],
             )
           ],
@@ -248,13 +283,13 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     );
   }
 
-  Widget _infoTile(String title, String content) {
+  Widget _infoTile(String title, String content, String tileColor) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.28,
       height: 65,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: const Color(0xffF2F4F6),
+        color: tileColor=="grey"? Color(0xffF2F4F6) : Color(0xffFFF1F1),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -262,11 +297,11 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
         children: [
           Text(
             title,
-            style: const TextStyle(fontSize: 12, color: Color(0xff777E8A)),
+            style: TextStyle(fontSize: 12, color: tileColor=="grey"? Color(0xff777E8A):Color(0xffFE3A3B), fontWeight: FontWeight.w500),
           ),
           Text(
             content,
-            style: const TextStyle(fontSize: 14, color: Color(0xff565D66)),
+            style: TextStyle(fontSize: 14, color: tileColor=="grey"? Color(0xff777E8A):Color(0xffFE3A3B), fontWeight: FontWeight.w700),
           ),
         ],
       ),
@@ -283,14 +318,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     );
   }
 
-  Widget _cautionWidget() {
+  Widget _cautionWidget(String title) {
     return Column(
       children: [
         SizedBox(
             width: MediaQuery.of(context).size.width,
-            child: const Text(
-              '나은이가 알려주는 - 상품명',
-              style: TextStyle(
+            child: Text(
+              '나은이가 알려주는 상품  이야기',
+              style: const TextStyle(
                   fontSize: 20,
                   color: Color(0xff191919),
                   fontWeight: FontWeight.w600),
