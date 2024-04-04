@@ -15,7 +15,7 @@ class RecordFeatureScreen extends StatefulWidget {
 class _RecordFeatureScreenState extends State<RecordFeatureScreen> {
   // 현재 일시 변수 추가
   String currentDateTime =
-  DateFormat('yyyy.MM.dd HH:mm').format(DateTime.now());
+      DateFormat('yyyy.MM.dd HH:mm').format(DateTime.now());
   Timer? _timer;
   bool recordingStarted = false; // 녹음 시작 여부를 나타내는 변수
   int elapsedSeconds = 0; // 녹음된 시간을 나타내는 변수
@@ -229,11 +229,11 @@ class _RecordFeatureScreenState extends State<RecordFeatureScreen> {
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.white,
                       padding:
-                      EdgeInsets.symmetric(vertical: 14, horizontal: 58),
+                          EdgeInsets.symmetric(vertical: 14, horizontal: 58),
                       shape: RoundedRectangleBorder(
                         side: BorderSide(color: Color(0xFFD9D9D9)),
                         borderRadius:
-                        BorderRadius.circular(10), // 버튼을 round하게 변경
+                            BorderRadius.circular(10), // 버튼을 round하게 변경
                       ),
                     ),
                   ),
@@ -266,10 +266,10 @@ class _RecordFeatureScreenState extends State<RecordFeatureScreen> {
                     style: TextButton.styleFrom(
                       backgroundColor: Color(0xFF3168FD),
                       padding:
-                      EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+                          EdgeInsets.symmetric(vertical: 14, horizontal: 40),
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                        BorderRadius.circular(10), // 버튼을 round하게 변경
+                            BorderRadius.circular(10), // 버튼을 round하게 변경
                       ),
                     ),
                   ),

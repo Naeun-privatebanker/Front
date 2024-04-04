@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:naeun_front/screens/record/record_feature_download_popup.dart';
+import 'package:naeun_front/screens/record/record_feature_wrong_popup.dart';
 
 import '../../models/record_result.dart';
-import '../percent_progress_indicator.dart';
 
 class RecordFeatureResult extends StatefulWidget {
   final String title;
+
   RecordFeatureResult({required this.title});
 
   @override
@@ -14,8 +15,6 @@ class RecordFeatureResult extends StatefulWidget {
 }
 
 class _RecordFeatureResultState extends State<RecordFeatureResult> {
-  final ValueNotifier<bool> _listening = ValueNotifier<bool>(false);
-
   int _currentPageIndex = 0; // 현재 페이지 인덱스를 저장하는 변수
 
   RecordResult recordResult = RecordResult(
@@ -29,7 +28,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
       '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”'
     ],
     fullText:
-    '우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?',
+        '우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?',
   );
 
   @override
@@ -78,11 +77,15 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 shaderCallback: (Rect bounds) {
                                   return LinearGradient(
                                     colors: [
-                                      Color(0xFFFFFFFF), // Start color
-                                      Color(0xFFFFFFFF).withOpacity(0.6), // End color
+                                      Color(0xFFFFFFFF),
+                                      // Start color
+                                      Color(0xFFFFFFFF).withOpacity(0.6),
+                                      // End color
                                     ],
-                                    begin: Alignment.topCenter, // 100% at the left
-                                    end: Alignment.bottomCenter, // 0% at the right
+                                    begin: Alignment.topCenter,
+                                    // 100% at the left
+                                    end: Alignment
+                                        .bottomCenter, // 0% at the right
                                   ).createShader(bounds);
                                 },
                                 child: SvgPicture.asset(
@@ -168,7 +171,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                   itemCount: recordResult.itemList.length,
                                   itemBuilder: (context, index) {
                                     return buildPageViewItem(
-                                        recordResult.itemList[index]);
+                                        context, recordResult.itemList[index]);
                                   },
                                 ),
                               ),
@@ -177,7 +180,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: List.generate(
                                   3,
-                                      (index) => buildIndicator(index),
+                                  (index) => buildIndicator(index),
                                 ),
                               ),
                               SizedBox(height: 32),
@@ -196,10 +199,35 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                     fontSize: 18, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 16),
-                              Text(
-                                recordResult.fullText,
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(0, 10),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText
+                                          .substring(10, 20),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: recordResult.fullText.substring(20),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
                               ),
                               SizedBox(height: 26),
                               Container(
@@ -277,12 +305,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => Dialog.fullscreen(
-                              backgroundColor: Colors.black.withOpacity(0.5),
-                              child: _naeunDialog(),
-                          ));
+                      // 이미지 버튼의 동작 추가
                     },
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(), // 버튼을 원 모양으로 만듦
@@ -305,21 +328,34 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
     );
   }
 
-  Widget buildPageViewItem(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 26, horizontal: 23),
-      margin: EdgeInsets.only(top: 16, right: 9),
-      decoration: BoxDecoration(
-        color: Color(0xFFF2F4F6),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
+  Widget buildPageViewItem(BuildContext context, String text) {
+    return InkWell(
+      onTap: () {
+        // 클릭 시 페이지 이동 코드 작성
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                RecordWrongPopup(text: text), // NextPage는 이동할 페이지 위젯입니다.
+          ),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 26, horizontal: 23),
+        margin: EdgeInsets.only(top: 16, right: 9),
+        decoration: BoxDecoration(
+          color: Color(0xFFF2F4F6),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            decoration: TextDecoration.underline),
-        softWrap: true,
+            decoration: TextDecoration.underline,
+          ),
+          softWrap: true,
+        ),
       ),
     );
   }
@@ -333,142 +369,6 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
         borderRadius: BorderRadius.circular(20),
         color: index == _currentPageIndex ? Colors.white : Color(0xFFD9D9D9),
       ),
-    );
-  }
-
-  Widget _naeunDialog() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Column(
-          children: [
-            // 뒤로가기 아이콘
-            SizedBox(height: 5, width: MediaQuery.of(context).size.width),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(width: 5),
-                IconButton(
-                  color: Colors.white,
-                  icon: const Icon(Icons.arrow_back_ios),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
-
-            // 1. 텍스트
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.multitrack_audio,
-                  color: Colors.white,
-                  size: MediaQuery.of(context).size.width *
-                      0.1, // 아이콘 크기를 화면 너비의 10%로 설정
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  '오안내 의심표현을',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600),
-                ),
-                const Text(
-                  '함께 확인해봐요',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-          ],
-        ),
-
-        // 2. 그림 덩어리
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Stack(children: [
-            // 나은이 이미지
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: 282,
-                height: 520,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/speaking_naeun.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-
-            Positioned(
-              left: MediaQuery.of(context).size.width * 0.1,
-              bottom: 80,
-              child: ValueListenableBuilder<bool>(
-                  valueListenable: _listening,
-                  builder: (context, value, child) {
-                    return SizedBox(
-                      height: 100,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          if (!_listening.value) const SizedBox() else
-                            const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Center(
-                                    child: PercentProgressIndicator(
-                                      progressColor: Color(0xffFE3A3B),
-                                      percent: 0.4,
-                                    ))),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: _listening.value
-                                    ? Colors.transparent
-                                    : const Color(0xffFE3A3B),
-                                minimumSize:
-                                Size(MediaQuery.of(context).size.width * 0.8, 55),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    side: BorderSide(
-                                      width: 1.0,
-                                      color: _listening.value ?
-                                      const Color(0x00fff4f6).withOpacity(0.4)
-                                          : Colors.transparent,
-                                    )
-                                )),
-                            onPressed: () {
-                              setState(() {
-                                _listening.value = !_listening.value; // 상태를 토글합니다.
-                                print('상태변경!');
-                                print(_listening.value);
-                              });
-                            },
-                            child: Center(
-                              child: Text(
-                                _listening.value ? '그만 듣기' : '설명 듣기',
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-            ),
-          ]),
-        )
-      ],
     );
   }
 }

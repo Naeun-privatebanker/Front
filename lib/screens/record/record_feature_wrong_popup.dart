@@ -41,7 +41,7 @@ class RecordWrongPopup extends StatelessWidget {
                     children: [
                       TextSpan(
                         text:
-                        "이 상품은 파생결합증권으로 예금과는 달리 예금자보호를 받지 않아요. 즉, 수익을 지급받지 못하거나",
+                            "이 상품은 파생결합증권으로 예금과는 달리 예금자보호를 받지 않아요. 즉, 수익을 지급받지 못하거나",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

@@ -62,7 +62,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 14),
+                    SizedBox(height: 21),
                     InkWell(
                       onTap: () {
                         Navigator.push(

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:naeun_front/screens/record/quiz_dialog.dart';
 
 import '../../models/record_result.dart';
 
@@ -140,12 +139,7 @@ class _RecordFeatureResultState extends State<RecordQuiz> {
                                 SizedBox(height: 18),
                                 TextButton(
                                   onPressed: () {
-                                    showDialog<String>(
-                                        context: context,
-                                        builder: (BuildContext context) => Dialog.fullscreen(
-                                            backgroundColor: Colors.black.withOpacity(0.5),
-                                            child: QuizDialog(),
-                                        ));
+                                    Navigator.of(context).pop();
                                   },
                                   child: Container(
                                     margin: EdgeInsets.symmetric(
