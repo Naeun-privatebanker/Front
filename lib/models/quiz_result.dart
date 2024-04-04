@@ -19,3 +19,4 @@ class QuizResult {
     required this.quizItem,
   });
 }
+

@@ -132,13 +132,13 @@ class _QuizDialogState extends State<QuizDialog> {
                   ),
                   child: const Center(
                       child: Text(
-                        '답을 골라주세요!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          decoration: TextDecoration.none,
-                        ),
-                      )),
+                    '답을 골라주세요!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      decoration: TextDecoration.none,
+                    ),
+                  )),
                 )),
 
             Positioned(
@@ -336,13 +336,13 @@ class _QuizDialogState extends State<QuizDialog> {
                   ),
                   child: const Center(
                       child: Text(
-                        '답을 골라주세요!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          decoration: TextDecoration.none,
-                        ),
-                      )),
+                    '답을 골라주세요!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      decoration: TextDecoration.none,
+                    ),
+                  )),
                 )),
 
             Positioned(
@@ -552,13 +552,13 @@ class _QuizDialogState extends State<QuizDialog> {
                   ),
                   child: const Center(
                       child: Text(
-                        '답을 골라주세요!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          decoration: TextDecoration.none,
-                        ),
-                      )),
+                    '답을 골라주세요!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      decoration: TextDecoration.none,
+                    ),
+                  )),
                 )),
 
             Positioned(
@@ -579,7 +579,7 @@ class _QuizDialogState extends State<QuizDialog> {
                               MaterialPageRoute(
                                 builder: (context) => RecordQuizResult(
                                   title:
-                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                      '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
                                 ),
                               ),
                             );
@@ -619,7 +619,7 @@ class _QuizDialogState extends State<QuizDialog> {
                               MaterialPageRoute(
                                 builder: (context) => RecordQuizResult(
                                   title:
-                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                      '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
                                 ),
                               ),
                             );
@@ -659,7 +659,7 @@ class _QuizDialogState extends State<QuizDialog> {
                               MaterialPageRoute(
                                 builder: (context) => RecordQuizResult(
                                   title:
-                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                      '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
                                 ),
                               ),
                             );

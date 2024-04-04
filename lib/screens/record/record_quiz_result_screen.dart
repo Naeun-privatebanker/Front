@@ -28,14 +28,14 @@ class _RecordQuizResultState extends State<RecordQuizResult> {
         quiz: '본상품은 예·적금과는 다른상품으로 예금자 보호를 받지 못해 원금손실위험이 있다.',
         answerBold: '있다. ',
         answerLight:
-        'ELS 상품은 예금이나 적금과 같은 예금자보호 대상 상품이 아닙니다. 따라서 기초자산 가격 변동에 따라 원금 손실이 발생할 수 있습니다.',
+            'ELS 상품은 예금이나 적금과 같은 예금자보호 대상 상품이 아닙니다. 따라서 기초자산 가격 변동에 따라 원금 손실이 발생할 수 있습니다.',
         unCorrect: '아니에요',
       ),
       QuizItem(
         quiz: '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
         answerBold: '원금의 20%~100%(원금전액). ',
         answerLight:
-        '본 상품은 기초자산 가격이 크게 하락하는 경우에는 원금 손실이 발생할 수 있으며, 최악의 경우 원금 전액을 잃을 수도 있습니다.',
+            '본 상품은 기초자산 가격이 크게 하락하는 경우에는 원금 손실이 발생할 수 있으며, 최악의 경우 원금 전액을 잃을 수도 있습니다.',
         unCorrect: '원금의 0%~20%',
       ),
     ],
@@ -162,7 +162,7 @@ class _RecordQuizResultState extends State<RecordQuizResult> {
                                 RecordQuizResultScreenItem(
                                     quizResult: quizResult,
                                     quizResultPercent:
-                                    quizResult.quizResultPercent),
+                                        quizResult.quizResultPercent),
                               ],
                             ),
                           ),
@@ -207,7 +207,7 @@ class _RecordQuizResultState extends State<RecordQuizResult> {
                               },
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
