@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:naeun_front/screens/record/quiz_dialog.dart';
 
 import '../../models/record_result.dart';
 
@@ -20,6 +21,11 @@ class _RecordFeatureResultState extends State<RecordQuiz> {
     time: '48',
     count: '3',
     itemList: [
+      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
+      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
+      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”'
+    ],
+    itemDescriptionList: [
       '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
       '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
       '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”'
@@ -139,7 +145,12 @@ class _RecordFeatureResultState extends State<RecordQuiz> {
                                 SizedBox(height: 18),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pop();
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return QuizDialog();
+                                      },
+                                    );
                                   },
                                   child: Container(
                                     margin: EdgeInsets.symmetric(
@@ -181,7 +192,7 @@ class _RecordFeatureResultState extends State<RecordQuiz> {
                           SizedBox(height: 32),
                           Text(
                             '※ 해당 퀴즈는 금융사 완전판매 모니터링 문제와 녹음본 주의사항을 종합하여 제작됩니다.',
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.start,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,

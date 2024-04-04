@@ -21,11 +21,19 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
     date: '2024.04.11',
     title: '국민은행 KB albe ELS',
     time: '48',
-    count: '3',
+    count: '4',
     itemList: [
-      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
-      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”',
-      '“고객님 이 상품은 원금 손실 될 확률이 거의 없어요.”'
+      '“원금 손실 위험 없이 높은 수익을 기대할 수 있다는 장점이 있습니다.”',
+      '“최근 3년간 평균 수익률이 10% 이상으로 매우 안정적인 편입니다.”',
+      '“주가지수가 장기적으로는 상승하는 경향이 있기 때문에”',
+      '“놓치시면 후회하실 수도 있습니다.”',
+      '“주가지수가 장기적으로는 상승하는 경향이 있기 때문에 큰 걱정은 하실 필요가 없습니다.”',
+    ],
+    itemDescriptionList: [
+      '과장된 수익 약속:\nELS 상품은 원금 손실 가능성이 있는 투자 상품입니다. 하지만, 이 문장은 원금 손실 위험을 언급하지 않고 높은 수익만 강조하고 있습니다.',
+      '과거 성과에 대한 과도한 의존:\n과거 수익률이 미래 수익률을 보장하지 않습니다. 하지만, 이 문장은 과거 수익률을 근거로 상품의 안정성을 주장하고 있습니다.',
+      '불확실한 미래에 대한 과한 확신:\n주가지수는 예측할 수 없으며, 장기적으로 상승한다는 보장이 없습니다. 하지만, 이 문장은 주가지수가 상승할 것이라고 단정하고 있습니다.\n\n필수 사항의 무시: \n주가지수 하락으로 인한 원금 손실 가능성을 제대로 언급하지 않고 있습니다.',
+      '감정적 압박:\n투자자에게 압박감을 주어 투자를 유도하는 표현입니다. 투자는 신중하게 결정해야 하며, 압박감을 느껴서 투자 결정을 내려서는 안 됩니다.',
     ],
     fullText:
         '우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?',
@@ -58,15 +66,15 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RecordDownloadPopup(
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return RecordDownloadPopup(
                                   date: recordResult.date,
                                   title: recordResult.title,
                                   time: recordResult.date,
-                                ),
-                              ),
+                                );
+                              },
                             );
                           },
                           child: Row(
@@ -127,9 +135,9 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                     style: TextStyle(
                                         fontSize: 16, color: Colors.white),
                                   ),
-                                  SizedBox(width: 16),
+                                  SizedBox(width: 4),
                                   Text(
-                                    recordResult.title,
+                                   recordResult.title,
                                     style: TextStyle(
                                         fontSize: 16, color: Colors.white),
                                   ),
@@ -149,7 +157,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                     backgroundImage: AssetImage(
                                         'assets/png/img_record_result_profile.png'),
                                   ),
-                                  SizedBox(width: 10),
+                                  SizedBox(width: 4),
                                   Text(
                                     '오안내 의심표현 ${recordResult.count}개',
                                     style: TextStyle(
@@ -168,10 +176,13 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                       _currentPageIndex = index;
                                     });
                                   },
-                                  itemCount: recordResult.itemList.length,
+                                  itemCount: recordResult.itemList.length-1,
                                   itemBuilder: (context, index) {
                                     return buildPageViewItem(
-                                        context, recordResult.itemList[index]);
+                                        context,
+                                        recordResult.itemList[index],
+                                        recordResult
+                                            .itemDescriptionList[index]);
                                   },
                                 ),
                               ),
@@ -179,7 +190,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: List.generate(
-                                  3,
+                                  recordResult.itemList.length -1,
                                   (index) => buildIndicator(index),
                                 ),
                               ),
@@ -203,15 +214,15 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                 TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: recordResult.fullText
-                                          .substring(0, 10),
+                                      text:
+                                          '은행원 : 지금부터 상품 안내를 시작하겠습니다.우선 가입자분의 투자성향테스트를 진행하겠습니다. 안전한 금융상품 가입을 위해 저희쪽에서도 녹취를 진행할 예정인데 동의하시나요?\n\n고객 : 네. 동의합니다.\n\n고객: 요즘 이율이 참 낮아서 돈을 어디에 넣어야 할지 고민이 많네요. 혹시 좋은 투자 상품이 있을까요?\n\n은행원: 안녕하세요, 고객님! 저희 신한투자증권 은행 지점 컨설턴트입니다. 고객님의 고민, 이해합니다. 사실 이 시기에는 정말 투자하기 좋은 기회가 많습니다. 특히, 저희 ELS 상품은 안정적인 수익을 원하시는 고객에게 최고의 선택이 될 거라고 생각합니다.\n\n고객: ELS 상품이라는 건 처음 들어보는데 어떤 상품인지 자세히 설명해 줄 수 있나요?\n\n은행원: 네, ELS 상품은 주가지수에 연동된 투자상품입니다.',
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     TextSpan(
-                                      text: recordResult.fullText
-                                          .substring(10, 20),
+                                      text:
+                                          '원금 손실 위험 없이 높은 수익을 기대할 수 있다는 장점이 있습니다.',
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
@@ -221,7 +232,62 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: recordResult.fullText.substring(20),
+                                      text: '특히, 저희 신한투자증권의 ELS 상품은 ',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '최근 3년간 평균 수익률이 10% 이상으로 매우 안정적인 편입니다.',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '실제로 많은 고객님들이 ELS 상품을 통해 안정적인 수익을 창출하고 계십니다.\n\n고객: 원금 손실 위험 없다는 건 정말 매력적인데요. 그럼 수익률은 얼마나 되나요?\n\n은행원: 예상 수익률은 15% 정도로 예상됩니다. 다만, 실제 수익률은 주가지수의 변동에 따라 달라질 수 있습니다. 하지만 과거 실적을 보면 주가지수가 장기적으로는 상승하는 경향이 있기 때문에 큰 걱정은 하실 필요가 없습니다. 또한, 저희 신한투자증권은 전문적인 투자 분석을 통해 최적의 투자 전략을 제공합니다. 고객님은 편안하게 투자하시면 됩니다.\n\n고객: 투자 기간은 얼마나 되나요?\n\n은행원: ELS 상품의 투자 기간은 5년입니다. 5년이라는 기간은 조금 길다고 생각될 수도 있지만, 안정적인 수익을 기대하기 위해서는 어느 정도 기간이 필요하다는 점 양해 부탁드립니다. 물론, 조기 상환도 가능합니다\n\n고객: 5년이라는 기간은 좀 길고, 주가지수가 하락할 위험도 있다니 신중하게 생각해봐야겠어요.\n\n은행원: 네, 맞습니다. 투자는 신중하게 결정해야 합니다. 하지만, ELS 상품은 안정적인 수익을 추구하는 고객에게 매우 적합한 상품입니다. 특히, 고객님처럼 은퇴 후 안정적인 수입을 원하시는 고객에게 추천드립니다.\n\n고객: 그런데 투자에 대한 경험이 전혀 없어서 걱정스럽네요.\n\n은행원: 걱정하지 마세요. 저희 컨설턴트가 투자 과정에서 고객님을 꼼꼼하게 안내해 드립니다. 투자 관련 교육 프로그램도 운영하고 있으니 언제든 참여하시면 도움이 될 것입니다.\n\n은행원: 솔직히 말씀드리면, ELS 상품은 현재 매우 인기가 많아서 빠르게 모집 마감될 가능성이 높습니다. 게다가 이번 주에는 특별 프로모션을 진행하고 있어서 더욱 유리하게 투자하실 수 있습니다. 오늘 가입하시면 특별 혜택도 제공됩니다.\n\n고객: 그래도 좀 더 생각해봐야겠어요.\n\n은행원: 고객님, 혹시 ELS 상품에 대해 궁금한 점이나 불안한 점이 있으신가요? 솔직하게 말씀해주시면 제가 최대한 친절하게 설명해 드리겠습니다.\n\n고객: 그래도 주가지수가 하락하면 돈을 잃을 수도 있다는 게 걱정스럽네요.\n\n은행원: 네, 고객님의 우려는 이해합니다. 하지만 과거 실적을 보면',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '주가지수가 장기적으로는 상승하는 경향이 있기 때문에 큰 걱정은 하실 필요가 없습니다. ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '또한, 저희 신한투자증권은 전문적인 투자 분석을 통해 최적의 투자 전략을 제공합니다.\n\n고객: 그래도요...\n\n은행원: 고객님, ELS 상품은 정말 좋은 기회입니다. 지금 투자하시면 안정적인 수익을 기대할 수 있을 뿐만 아니라, 특별 혜택도 받으실 수 있습니다.',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '놓치시면 후회하실 수도 있습니다.\n\n',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFE3A3B),
+                                        decorationColor: Color(0xFFFE3A3B),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '고객: 그래도...\n\n은행원: 고객님, 저희 컨설턴트가 고객님의 투자 목표와 상황에 맞춰 최적의 투자 전략을 세우도록 도와드릴 것입니다.\n\n은행원: 고객님, ELS 상품에 가입해주셔서 감사합니다. 혹시 투자 과정에서 궁금한 점이나 불편한 점이 있으면 언제든지 저에게 문의해주세요.',
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
@@ -328,16 +394,17 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
     );
   }
 
-  Widget buildPageViewItem(BuildContext context, String text) {
+  Widget buildPageViewItem(
+      BuildContext context, String title, String description) {
     return InkWell(
       onTap: () {
-        // 클릭 시 페이지 이동 코드 작성
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                RecordWrongPopup(text: text), // NextPage는 이동할 페이지 위젯입니다.
-          ),
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return RecordWrongPopup(
+                title: title, description: description
+            );
+          },
         );
       },
       child: Container(
@@ -348,7 +415,7 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
-          text,
+          title,
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,

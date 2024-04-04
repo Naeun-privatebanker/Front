@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 첫번째 card
             GestureDetector(
               onTap: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2, recordTabNum: 0)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 1, recordTabNum: 0)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: (){
                 Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 2, recordTabNum: 0,)));
-                },
+              },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),
                 padding: const EdgeInsets.all(10),
@@ -163,8 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 네 번째 카드 -> 마이페이지 탭이랑 연결
             GestureDetector(
               onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3, recordTabNum: 0)));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const TabControlScreen(index: 3, recordTabNum: 0)));
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(0,10,0,10),

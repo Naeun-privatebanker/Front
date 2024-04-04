@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naeun_front/screens/consult/search_result_screen.dart';
 import 'package:provider/provider.dart'; // Provider 패키지를 import합니다.
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ConsultScreen extends StatefulWidget {
   const ConsultScreen({Key? key}) : super(key: key);
@@ -77,16 +79,40 @@ class _ConsultScreenState extends State<ConsultScreen> {
                             print(searchKeyword);
                           });
                         },
-                        //todo : 검색키워드 누르면 검색 결과로 넘어가기
-                        onSubmitted: (value) {
-                          context.read<RecentSearches>().addSearchKeyword(searchKeyword); // 여기서 context.read를 사용합니다.
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             ResultPage(searchKeyword: searchKeyword, cafeQuery: CafeService().getCafesBySearchKeyword(searchKeyword))));
-                        },
+                        onSubmitted: (value) async {
+                          // Add the search keyword to the recent searches list
+                          context.read<RecentSearches>().addSearchKeyword(searchKeyword);
+
+                          // Define the URL with the search query parameter
+                          final url = Uri.parse('http://35.216.24.226:8080/api/v1/product/query?query=$value');
+
+                          try{
+
+                            // Make the HTTP GET request
+                            final response = await http.get(url);
+
+                            // Check if the request was successful
+                            if (response.statusCode == 200) {
+                              // Decode the response body using UTF-8 encoding
+                              var decodedResponse = utf8.decode(response.bodyBytes);
+                              var responseData = json.decode(decodedResponse);
+
+                              // Log the response to the console
+                              print(responseData);
+
+                              // Process the response further if needed
+                            } else {
+                              // If the request was not successful, log the error
+                              print('Request failed with status: ${response.statusCode}');
+                            }
+                          } catch(error) {
+                            print('Error occurred: $error');
+                          }
+                        }
+
                       ),
-                    ),
+                        //todo : 검색키워드 누르면 검색 결과로 넘어가기
+                      ),
                     IconButton(
                       icon : const Icon(Icons.search, color: Color(0xff3168FD), size: 28,), onPressed: () {
                         print('아이콘 눌림');
@@ -176,11 +202,3 @@ class _ConsultScreenState extends State<ConsultScreen> {
   }
 }
 
-class RecentSearches with ChangeNotifier {
-  List<String> searchList = [];
-
-  addSearchKeyword(String keyword) {
-    searchList.insert(0, keyword);
-    notifyListeners();
-  }
-}

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RecordWrongPopup extends StatelessWidget {
-  final String text;
+  final String title;
+  final String description;
 
-  RecordWrongPopup({required this.text});
+  RecordWrongPopup({required this.title,required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,6 @@ class RecordWrongPopup extends StatelessWidget {
         color: Colors.black.withOpacity(0.5),
         child: AlertDialog(
           surfaceTintColor: Colors.white,
-          backgroundColor: Colors.white,
           content: Container(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -27,46 +27,25 @@ class RecordWrongPopup extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  text,
+                  title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFFFE3A3B),
+                    decoration: TextDecoration.lineThrough,
+                    decorationColor: Color(0xFFFE3A3B),
                   ),
                 ),
                 SizedBox(height: 16),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text:
-                            "이 상품은 파생결합증권으로 예금과는 달리 예금자보호를 받지 않아요. 즉, 수익을 지급받지 못하거나",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF353535),
-                        ),
-                      ),
-                      TextSpan(
-                        text: " 원금의 최대 100% 까지 손실",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.red,
-                        ),
-                      ),
-                      TextSpan(
-                        text: "이 발생할 수 있습니다.",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF353535),
-                        ),
-                      ),
-                    ],
+                Text(
+                  '${description}',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF000000).withOpacity(0.8),
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 28),
                 TextButton(

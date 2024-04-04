@@ -10,7 +10,7 @@ class RecordStoreopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.white,
+      surfaceTintColor: Colors.white,
       contentPadding: EdgeInsets.all(16),
       content: Stack(
         alignment: Alignment.center,
