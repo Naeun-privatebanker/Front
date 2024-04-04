@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:naeun_front/screens/record/record_feature_download_popup.dart';
 
 import '../../models/record_result.dart';
+import '../percent_progress_indicator.dart';
 
 class RecordFeatureResult extends StatefulWidget {
   final String title;
@@ -414,36 +415,53 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
               child: ValueListenableBuilder<bool>(
                   valueListenable: _listening,
                   builder: (context, value, child) {
-                    return ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: _listening.value
-                              ? Colors.transparent
-                              : const Color(0xffFE3A3B),
-                          minimumSize:
-                          Size(MediaQuery.of(context).size.width * 0.8, 55),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              side: BorderSide(
-                                width: 1.0,
-                                color: _listening.value ?
-                                const Color(0x00fff4f6).withOpacity(0.4)
-                                    : Colors.transparent,
-                              )
-                          )),
-                      onPressed: () {
-                        setState(() {
-                          _listening.value = !_listening.value; // 상태를 토글합니다.
-                          print('상태변경!');
-                          print(_listening.value);
-                        });
-                      },
-                      child: Center(
-                        child: Text(
-                          _listening.value ? '그만 듣기' : '설명 듣기',
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20),
-                        ),
+                    return SizedBox(
+                      height: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          if (!_listening.value) const SizedBox() else
+                            const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Center(
+                                    child: PercentProgressIndicator(
+                                      progressColor: Color(0xffFE3A3B),
+                                      percent: 0.4,
+                                    ))),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: _listening.value
+                                    ? Colors.transparent
+                                    : const Color(0xffFE3A3B),
+                                minimumSize:
+                                Size(MediaQuery.of(context).size.width * 0.8, 55),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    side: BorderSide(
+                                      width: 1.0,
+                                      color: _listening.value ?
+                                      const Color(0x00fff4f6).withOpacity(0.4)
+                                          : Colors.transparent,
+                                    )
+                                )),
+                            onPressed: () {
+                              setState(() {
+                                _listening.value = !_listening.value; // 상태를 토글합니다.
+                                print('상태변경!');
+                                print(_listening.value);
+                              });
+                            },
+                            child: Center(
+                              child: Text(
+                                _listening.value ? '그만 듣기' : '설명 듣기',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   }),

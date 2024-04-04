@@ -9,11 +9,13 @@ import 'package:naeun_front/models/quiz.dart';
 class RecordScreenTab extends StatefulWidget {
   final int recordCount;
   final bool isNewQuizExist;
+  final int initialIndex;
 
   const RecordScreenTab({
     Key? key,
     required this.recordCount,
     required this.isNewQuizExist,
+    required this.initialIndex,
   }) : super(key: key);
 
   @override
@@ -31,9 +33,21 @@ class _RecordScreenTabState extends State<RecordScreenTab>
   ];
 
   List<Quiz> quizList = [
-    Quiz(title: '국민은행 KB albeELS', isQuizDone: true, understand: 0, quizLabel: 'none'),
-    Quiz(title: '신한투자증권(ELS) 25490', isQuizDone: false, understand: 50, quizLabel: '주의'),
-    Quiz(title:'국민은행 KB albeELS', isQuizDone: false, understand: 70, quizLabel: '안전'),
+    Quiz(
+        title: '국민은행 KB albeELS',
+        isQuizDone: true,
+        understand: 0,
+        quizLabel: 'none'),
+    Quiz(
+        title: '신한투자증권(ELS) 25490',
+        isQuizDone: false,
+        understand: 50,
+        quizLabel: '주의'),
+    Quiz(
+        title: '국민은행 KB albeELS',
+        isQuizDone: false,
+        understand: 70,
+        quizLabel: '안전'),
   ];
 
   @override
@@ -41,6 +55,7 @@ class _RecordScreenTabState extends State<RecordScreenTab>
     _tabController = TabController(
       length: 2,
       vsync: this,
+      initialIndex: widget.initialIndex,
     );
     super.initState();
   }
@@ -53,11 +68,10 @@ class _RecordScreenTabState extends State<RecordScreenTab>
         body: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 44),
+              margin: EdgeInsets.only(top: 20, bottom: 0),
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(
-                      width: 2.0, color: Color(0x00D9D9D9)), // 하단에 선 추가
+                  bottom: BorderSide(width: 2.0, color: Color(0x00D9D9D9)),
                 ),
               ),
               child: TabBar(
@@ -74,17 +88,17 @@ class _RecordScreenTabState extends State<RecordScreenTab>
                 ),
                 tabs: [
                   Container(
-                    padding: EdgeInsets.only(bottom: 15),
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     alignment: Alignment.center,
                     child: Text(
                       '녹음목록 ${widget.recordCount}',
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 15),
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     alignment: Alignment.center,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center, // 중앙 정렬
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           '이해도퀴즈',
@@ -105,7 +119,6 @@ class _RecordScreenTabState extends State<RecordScreenTab>
                 ),
               ),
             ),
-            SizedBox(height: 5),
             Expanded(
               child: TabBarView(
                 controller: _tabController,

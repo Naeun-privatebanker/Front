@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naeun_front/screens/record/record_quiz_result_screen.dart';
 
 class QuizDialog extends StatefulWidget {
   const QuizDialog({super.key});
@@ -35,6 +36,12 @@ class _QuizDialogState extends State<QuizDialog> {
       children: [
         Column(
           children: [
+            // 배경색
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+            ),
             // 뒤로가기 아이콘
             const SizedBox(height: 5, width: double.infinity),
             Row(
@@ -45,7 +52,7 @@ class _QuizDialogState extends State<QuizDialog> {
                   color: Colors.white,
                   icon: const Icon(Icons.arrow_back_ios),
                   onPressed: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ],
@@ -65,23 +72,29 @@ class _QuizDialogState extends State<QuizDialog> {
                 Text(
                   'Q1. 본상품은 예·적금과는 다',
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
                 const Text(
                   '른상품으로 예금자 보호를 받지',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
                 const Text(
                   '못해 원금손실위험이 있다.',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               ],
             ),
@@ -119,9 +132,13 @@ class _QuizDialogState extends State<QuizDialog> {
                   ),
                   child: const Center(
                       child: Text(
-                    '답을 골라주세요!',
-                    style: TextStyle(color: Colors.white, fontSize: 14),
-                  )),
+                        '답을 골라주세요!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          decoration: TextDecoration.none,
+                        ),
+                      )),
                 )),
 
             Positioned(
@@ -157,7 +174,10 @@ class _QuizDialogState extends State<QuizDialog> {
                             Text(
                               '아니에요',
                               style: TextStyle(
-                                  color: Color(0xff565D66), fontSize: 14),
+                                color: Color(0xff565D66),
+                                fontSize: 14,
+                                decoration: TextDecoration.none,
+                              ),
                             )
                           ],
                         ),
@@ -167,7 +187,7 @@ class _QuizDialogState extends State<QuizDialog> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           quiz_num = 2;
                         });
@@ -194,7 +214,10 @@ class _QuizDialogState extends State<QuizDialog> {
                             Text(
                               '맞아요',
                               style: TextStyle(
-                                  color: Color(0xff565D66), fontSize: 14),
+                                color: Color(0xff565D66),
+                                fontSize: 14,
+                                decoration: TextDecoration.none,
+                              ),
                             )
                           ],
                         ),
@@ -215,6 +238,12 @@ class _QuizDialogState extends State<QuizDialog> {
       children: [
         Column(
           children: [
+            // 배경색
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+            ),
             // 뒤로가기 아이콘
             const SizedBox(height: 5, width: double.infinity),
             Row(
@@ -247,23 +276,29 @@ class _QuizDialogState extends State<QuizDialog> {
                 Text(
                   'Q2. 본상품의 원금손실위험이',
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
                 const Text(
                   '발생할 가능성에 대해',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
                 const Text(
                   '어떻게 생각하시나요?',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               ],
             ),
@@ -302,7 +337,11 @@ class _QuizDialogState extends State<QuizDialog> {
                   child: const Center(
                       child: Text(
                         '답을 골라주세요!',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          decoration: TextDecoration.none,
+                        ),
                       )),
                 )),
 
@@ -315,7 +354,7 @@ class _QuizDialogState extends State<QuizDialog> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             quiz_num = 3;
                           });
@@ -323,47 +362,86 @@ class _QuizDialogState extends State<QuizDialog> {
                         child: Container(
                           width: 350,
                           height: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Center(child: Text('1. 원금손실 위험이 거의 없다', style: TextStyle(fontSize: 18),)),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            quiz_num = 3;
-                          });
-                        },
-                        child: Container(
-                          width: 350,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Center(child: Text('2. 원금손실 위험이 있지만 경미하다', style: TextStyle(fontSize: 18),)),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            quiz_num = 3;
-                          });
-                        },
-                        child: Container(
-                          width: 350,
-                          height: 80,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('3. 원금손실 위험이 있지만 높은 수익', style: TextStyle(fontSize: 18),),
-                              Text('률을 위해 감수해야한다          ', style: TextStyle(fontSize: 18),),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 15),
+                                child: const Text(
+                                  '1. 원금손실 위험이 거의없다',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color(0xFF191919),
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            quiz_num = 3;
+                          });
+                        },
+                        child: Container(
+                          width: 350,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 15),
+                                child: const Text(
+                                  '2. 원금손실 위험이 있지만 경미하다',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color(0xFF191919),
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            quiz_num = 3;
+                          });
+                        },
+                        child: Container(
+                          width: 350,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 13),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                '3. 원금손실 위험이 있지만 높은 수익\n률을 위해 감수해야한다',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color(0xFF191919),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -384,6 +462,12 @@ class _QuizDialogState extends State<QuizDialog> {
       children: [
         Column(
           children: [
+            // 배경색
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+            ),
             // 뒤로가기 아이콘
             const SizedBox(height: 5, width: double.infinity),
             Row(
@@ -394,7 +478,7 @@ class _QuizDialogState extends State<QuizDialog> {
                   color: Colors.white,
                   icon: const Icon(Icons.arrow_back_ios),
                   onPressed: () {
-                    setState((){
+                    setState(() {
                       quiz_num = 2;
                     });
                     // Navigator.pop(context);
@@ -417,16 +501,20 @@ class _QuizDialogState extends State<QuizDialog> {
                 Text(
                   'Q3. 본상품의 최대 원금손실',
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
                 const Text(
                   '규모는 어느 정도입니까?',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               ],
             ),
@@ -465,7 +553,11 @@ class _QuizDialogState extends State<QuizDialog> {
                   child: const Center(
                       child: Text(
                         '답을 골라주세요!',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          decoration: TextDecoration.none,
+                        ),
                       )),
                 )),
 
@@ -478,55 +570,120 @@ class _QuizDialogState extends State<QuizDialog> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             quiz_num = 3;
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RecordQuizResult(
+                                  title:
+                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                ),
+                              ),
+                            );
                           });
                         },
                         child: Container(
                           width: 350,
                           height: 60,
+                          alignment: AlignmentDirectional.topStart,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Center(child: Text('1. 원금의 0% ~ -20%                        ', style: TextStyle(fontSize: 18),)),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            quiz_num = 3;
-                          });
-                        },
-                        child: Container(
-                          width: 350,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Center(child: Text('2. 원금의 20%~-100%(원금전액)     ', style: TextStyle(fontSize: 18),)),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            quiz_num = 3;
-                          });
-                        },
-                        child: Container(
-                          width: 350,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 15),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('3. 시장상황에 따라 손실이 무한하게   ', style: TextStyle(fontSize: 18),),
-                              Text('커질 수 있다                               ', style: TextStyle(fontSize: 18),),
+                              Text(
+                                '1. 원금의 0%~20%',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color(0xFF191919),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            quiz_num = 3;
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RecordQuizResult(
+                                  title:
+                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                ),
+                              ),
+                            );
+                          });
+                        },
+                        child: Container(
+                          width: 350,
+                          height: 60,
+                          alignment: AlignmentDirectional.topStart,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 15),
+                          child: Column(
+                            children: [
+                              Text(
+                                '2. 원금의 20%~100%(원금전액)',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color(0xFF191919),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            quiz_num = 3;
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RecordQuizResult(
+                                  title:
+                                  '국민은행 KB albe ELS', // 이 부분에 적절한 title 값을 전달해야 합니다.
+                                ),
+                              ),
+                            );
+                          });
+                        },
+                        child: Container(
+                          width: 350,
+                          alignment: AlignmentDirectional.topStart,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 13),
+                          child:Column(
+                            children: [
+                              Text(
+                                '3. 시장상황에 따라 손실이 무한하게 커질 수 있다',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color(0xFF191919),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
                             ],
                           ),
                         ),

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import '../percent_progress_indicator.dart';
+import 'bottom_drawer_img.dart';
+
 
 class DescriptionScreen extends StatefulWidget {
   final String descriptionTitle;
@@ -253,7 +256,11 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
-                _infoTile("증권유형", "수익한도제한", "grey"),
+                GestureDetector(
+                  onTap:(){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomDrawerImg()));
+                  },
+                    child: _infoTile("증권유형", "수익한도제한", "grey")),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.02,
                 ),
@@ -335,7 +342,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           height: 10,
         ),
         const Text(
-          '설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다. 설명입니다.',
+          '안녕하세요! 오늘은 신한투자증권에서 판매하는 2880호 주가연계파생결합사채(ELB)에 대해 쉽게 설명해 드릴게요. 이름이 조금 어렵죠? 이 상품은 삼성전자 주식을 기초자산으로 하는 투자 상품이에요. 만약 삼성전자 주식 가격이 오르면 이익을 얻고, 떨어지더라도 원금 손실은 없도록 설계된 상품입니다. 투자 기간은 2024년 3월 22일부터 2024년 12월 20일까지 약 9개월 정도예요.이 상품의 최대 수익률은 연 3.801%입니다. 이 수익률을 얻기 위해서는 삼성전자 주식 가격이 투자 시작일보다 5배 이상 올라야 합니다. 하지만 삼성전자 주식 가격이 5배 이상 오르지 않더라도, 투자 기간 동안 가격이 떨어지지만 않으면 연 3.8%의 수익을 얻을 수 있습니다. 따라서 이 상품은 정기예금 등 안전한 상품에 투자하는 안정형 투자자에게 적합합니다. 다만, 주식 시장은 항상 변동하기 때문에 삼성전자 주식 가격이 크게 떨어질 가능성도 있습니다. 하지만 이 상품은 원금 손실이 발생하지 않도록 설계되었기 때문에, 투자한 원금을 잃을 걱정은 하지 않으셔도 됩니다. 투자는 항상 신중하게 결정해야 하지만, 이 상품은 비교적 안전하면서도 정기예금보다 높은 수익을 기대할 수 있는 상품입니다.',
           style: TextStyle(fontSize: 16),
         ),
         const SizedBox(
@@ -424,40 +431,56 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               child: ValueListenableBuilder<bool>(
                   valueListenable: _listening,
                   builder: (context, value, child) {
-                    return ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: _listening.value
-                              ? Colors.transparent
-                              : const Color(0xff3168FD),
-                          minimumSize:
-                              Size(MediaQuery.of(context).size.width * 0.8, 55),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: BorderSide(
-                              width: 1.0,
-                              color: _listening.value ?
-                                  const Color(0x00fff4f6).withOpacity(0.4)
-                                  : Colors.transparent,
-                            )
-                          )),
-                      onPressed: () {
-                        setState(() {
-                          _listening.value = !_listening.value; // 상태를 토글합니다.
-                          print('상태변경!');
-                          print(_listening.value);
-                        });
-                      },
-                      child: Center(
-                        child: Text(
-                          _listening.value ? '그만 듣기' : '설명 듣기',
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20),
-                        ),
+                    return SizedBox(
+                      height: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          if (!_listening.value) const SizedBox() else
+                            const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Center(
+                                    child: PercentProgressIndicator(
+                                      percent: 0.4,
+                                    ))),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: _listening.value
+                                    ? Colors.transparent
+                                    : const Color(0xff3168FD),
+                                minimumSize:
+                                    Size(MediaQuery.of(context).size.width * 0.8, 55),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  side: BorderSide(
+                                    width: 1.0,
+                                    color: _listening.value ?
+                                        const Color(0x00fff4f6).withOpacity(0.4)
+                                        : Colors.transparent,
+                                  )
+                                )),
+                            onPressed: () {
+                              setState(() {
+                                _listening.value = !_listening.value; // 상태를 토글합니다.
+                                print('상태변경!');
+                                print(_listening.value);
+                              });
+                            },
+                            child: Center(
+                              child: Text(
+                                _listening.value ? '그만 듣기' : '설명 듣기',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   }),
-            )
+              ),
           ]),
         )
       ],
