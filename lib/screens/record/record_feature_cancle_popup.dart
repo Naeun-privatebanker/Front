@@ -8,7 +8,7 @@ class RecordCancelPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.white, // Set background color to transparent
+      surfaceTintColor: Colors.white, // Set background color to transparent
       contentPadding: EdgeInsets.all(16),
       content: Stack(
         alignment: Alignment.center,
