@@ -1,4 +1,4 @@
-# Private Banker, Naeun Server
+# Private Banker, Naeun Front
 나만의 은행원, 나은 프론트 소스코드
 
 # About Naeun
