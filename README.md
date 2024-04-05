@@ -9,6 +9,7 @@ To prevent financial damage to the elderly due to mis-selling, the service stren
 불완전판매로 인한 고령층의 금융피해를 방지하기 위해 노인 전용 금융 기술을 통해 고령소비자의 위기관리 능력을 강화합니다.
 
 # Tech Architecture
+![image](https://github.com/Naeun-privatebanker/Front/assets/97941141/ec2b50ba-a27b-42cc-8e85-af16ba3ea2e1)
 
 
 # How to Run on Local
