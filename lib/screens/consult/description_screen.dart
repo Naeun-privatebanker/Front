@@ -443,6 +443,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                                 child: Center(
                                     child: PercentProgressIndicator(
                                       percent: 0.4,
+                                      progressColor: const Color(0xff3168FD),
                                     ))),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(

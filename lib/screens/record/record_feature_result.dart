@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:naeun_front/screens/record/record_description_read.dart';
 import 'package:naeun_front/screens/record/record_feature_download_popup.dart';
 import 'package:naeun_front/screens/record/record_feature_wrong_popup.dart';
 
@@ -371,8 +372,13 @@ class _RecordFeatureResultState extends State<RecordFeatureResult> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // 이미지 버튼의 동작 추가
-                    },
+
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => Dialog.fullscreen(
+                              backgroundColor: Colors.black.withOpacity(0.5),
+                              child: RecordDescriptionRead()
+                          ));                    },
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(), // 버튼을 원 모양으로 만듦
                       padding: EdgeInsets.all(0), // 내부 padding 추가

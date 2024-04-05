@@ -27,9 +27,9 @@ class _RecordScreenTabState extends State<RecordScreenTab>
   late TabController _tabController;
 
   List<Record> recordList = [
-    Record(warningCount: 2, date: 2, title: '국민은행 KB albeELS'),
-    Record(warningCount: 0, date: 0, title: '신한투자증권(ELS) 25490'),
-    Record(warningCount: 5, date: 1, title: '하나증권(ELS) 15576'),
+    Record(warningCount: 4, date: 2, title: '국민은행 KB albeELS'),
+    Record(warningCount: 2, date: 2, title: '신한투자증권(ELS) 25490'),
+    Record(warningCount: 0, date: 0, title: '하나증권(ELS) 15576'),
   ];
 
   List<Quiz> quizList = [
