@@ -1,5 +1,5 @@
 # Private Banker, Naeun Server
-나만의 은행원, 나은 서버 소스코드
+나만의 은행원, 나은 프론트 소스코드
 
 # About Naeun
 Naeun is an AI banker service to prevent the elderly from being victimized by mis-selling and help them respond after the fact.
