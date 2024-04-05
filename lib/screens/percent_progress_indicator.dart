@@ -12,7 +12,7 @@ class PercentProgressIndicator extends StatefulWidget {
     super.key,
     required this.percent,
     this.backgroundColor = Colors.grey,
-    this.progressColor = Colors.blueAccent,
+    required this.progressColor,
     this.height = 10,
     this.width = 300,
     this.borderRadius = 12,
@@ -29,7 +29,7 @@ class _PercentProgressIndicatorState extends State<PercentProgressIndicator> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
         _width = widget.percent * widget.width;
       });
